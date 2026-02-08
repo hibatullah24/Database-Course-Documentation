@@ -99,41 +99,98 @@ ADD CHECK (ReturnDate IS NULL OR ReturnDate >= LoanDate);
 INSERT INTO Libarary (Name, Location, ContactNumber, EstablishedYear)
 VALUES
 ('Central Libarary', 'Muscat', '24567890', 2005),
-('City Libaray', 'Salalah', '23234567', 2010);
+('City Libaray', 'Salalah', '23234567', 2010),
+('North Library', 'Sohar', '26891234', 2008),
+('South Library', 'Nizwa', '25431298', 2012),
+('East Library', 'Sur', '25561234', 2015),
+('West Library', 'Ibri', '25678901', 2007),
+('University Library', 'Muscat', '24123456', 2000),
+('Public Library', 'Barka', '24567891', 2018),
+('Children Library', 'Rustaq', '26677889', 2016),
+('Digital Library', 'Muscat', '24445566', 2020);
 
 
 
 INSERT INTO  Member (FullName, Email, PhoneNumber, MembershipStartDate)
 VALUES
 ('Ali Ahmed', 'ali@gmail.com', '91672576', '2023-01-15'),
-('Fatma Said', 'fatma@gmail.com', '92345678', '2023-03-10');
+('Fatma Said', 'fatma@gmail.com', '92345678', '2023-03-10'),
+('Salim Noor', 'salim@gmail.com', '91112233', '2023-02-20'),
+('Aisha Khalid', 'aisha@gmail.com', '92223344', '2023-04-05'),
+('Hassan Omar', 'hassan@gmail.com', '93334455', '2023-05-01'),
+('Muna Rashid', 'muna@gmail.com', '94445566', '2023-06-12'),
+('Yousef Ali', 'yousef@gmail.com', '95556677', '2023-07-18'),
+('Sara Mohammed', 'sara@gmail.com', '96667788', '2023-08-22'),
+('Khalid Salem', 'khalid@gmail.com', '97778899', '2023-09-30'),
+('Noor Hamad', 'noor@gmail.com', '98889900', '2023-10-10');
 
 
 INSERT INTO Book (ISBN, Title, Genre, Price, ShelfLocation, LibraryID)
 VALUES
 ('978-1111111111', 'Database Systems', 'Reference', 25.00, 'A1', 1),
 ('978-2222222222', 'Python Basics', 'Non-fiction', 18.50, 'B2', 1),
-('978-3333333333', 'Children Stories', 'Children', 12.00, 'C3', 2);
+('978-3333333333', 'Children Stories', 'Children', 12.00, 'C3', 2),
+('978-4444444444', 'SQL Guide', 'Reference', 30.00, 'A2', 3),
+('978-5555555555', 'Web Development', 'Non-fiction', 22.00, 'B3', 4),
+('978-6666666666', 'Fairy Tales', 'Children', 10.00, 'C1', 5),
+('978-7777777777', 'Data Science', 'Non-fiction', 28.00, 'B1', 6),
+('978-8888888888', 'Algorithms', 'Reference', 35.00, 'A3', 7),
+('978-9999999999', 'Story Book', 'Children', 9.00, 'C2', 8),
+('978-1010101010', 'AI Basics', 'Non-fiction', 26.00, 'B4', 9);
 
 
 INSERT INTO Staff (FullName, Position, ContactNumber, LibararyID)
 VALUES
 ('Ahmed Salim', 'Librarian', '91112233', 1),
-('Sara Khalid', 'Assistant', '92223344', 2);
+('Sara Khalid', 'Assistant', '92223344', 2),
+('Mohammed Ali', 'Manager', '93334455', 3),
+('Huda Said', 'Assistant', '94445566', 4),
+('Khalid Noor', 'Librarian', '95556677', 5),
+('Amina Rashid', 'Assistant', '96667788', 6),
+('Salem Ahmed', 'Manager', '97778899', 7),
+('Noor Ali', 'Assistant', '98889900', 8),
+('Faisal Omar', 'Librarian', '99990011', 9),
+('Maha Hassan', 'Assistant', '90001122', 10);
 
 INSERT INTO Loan (LoanDate, DueDate, Status, MemberID, BookID)
 VALUES
 ('2024-05-01', '2024-05-15', 'Issued', 1, 1),
-('2024-05-03', '2024-05-17', 'Returned', 2, 2);
+('2024-05-03', '2024-05-17', 'Returned', 2, 2),
+('2024-05-05', '2024-05-19', 'Overdue', 3, 3),
+('2024-05-06', '2024-05-20', 'Issued', 4, 4),
+('2024-05-07', '2024-05-21', 'Returned', 5, 5),
+('2024-05-08', '2024-05-22', 'Issued', 6, 6),
+('2024-05-09', '2024-05-23', 'Overdue', 7, 7),
+('2024-05-10', '2024-05-24', 'Issued', 8, 8),
+('2024-05-11', '2024-05-25', 'Returned', 9, 9),
+('2024-05-12', '2024-05-26', 'Issued', 10, 10);
 
 INSERT INTO Payment (PaymentDate, Amount, Method, LoanID)
 VALUES
-('2024-05-20', 5.00, 'Cash', 2);
+('2024-05-20', 5.00, 'Cash', 2),
+('2024-05-21', 3.00, 'Card', 3),
+('2024-05-22', 7.00, 'Cash', 3),
+('2024-05-23', 2.50, 'Card', 5),
+('2024-05-24', 6.00, 'Cash', 7),
+('2024-05-25', 4.00, 'Card', 7),
+('2024-05-26', 8.00, 'Cash', 9),
+('2024-05-27', 1.50, 'Card', 9),
+('2024-05-28', 5.50, 'Cash', 10),
+('2024-05-29', 3.75, 'Card', 10);
+
 
 INSERT INTO Review (Rating, ReviewDate, MemberID, BookID)
 VALUES
 (5, '2024-05-10', 1, 1),
-(4, '2024-05-12', 2, 2);
+(4, '2024-05-12', 2, 2),
+(3, '2024-05-12', 3, 3),
+(5, '2024-05-13', 4, 4),
+(4, '2024-05-14', 5, 5),
+(5, '2024-05-15', 6, 6),
+(3, '2024-05-16', 7, 7),
+(4, '2024-05-17', 8, 8),
+(5, '2024-05-18', 9, 9),
+(4, '2024-05-19', 10, 10);
 
 --CHECK DATA 
 SELECT * FROM Libarary;
