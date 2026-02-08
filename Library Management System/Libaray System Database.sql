@@ -297,3 +297,107 @@ ORDER BY EstablishedYear ASC;
 -- Task 6.5
 SELECT * FROM Review
 ORDER BY Rating DESC , ReviewDate ASC;
+
+-- Task 7.1
+SELECT DISTINCT Genre
+FROM Book;
+
+-- Task 7.2
+SELECT DISTINCT Location
+FROM Libarary;
+
+-- Task 7.3
+SELECT DISTINCT Position
+FROM Staff;
+
+-- Task 7.4
+SELECT DISTINCT Status
+FROM Loan;
+
+-- Task 8.1
+SELECT TOP 5 * FROM Book
+ORDER BY Price DESC;
+
+-- Task 8.2
+SELECT TOP 10 * FROM Member
+ORDER BY MembershipStartDate ASC;
+
+-- Task 8.3
+SELECT TOP 3 * FROM Libarary
+ORDER BY EstablishedYear ASC;
+
+-- Task 8.4
+SELECT TOP 5 * FROM Review
+ORDER BY Rating DESC;
+
+-- Task 9.1
+SELECT * FROM Book
+WHERE Title LIKE 'A%';
+
+-- Task 9.2
+SELECT * FROM Member
+WHERE Email LIKE '%gmail.com';
+
+-- Task 9.3
+SELECT * FROM Libarary
+WHERE Name LIKE '%Library';
+
+-- Task 9.4
+SELECT * FROM Book
+WHERE Title LIKE '%Data%';
+
+-- Task 9.5
+SELECT * FROM Member
+WHERE FullName LIKE 'A%';
+
+-- Task 10.1
+SELECT MemberID, BookID, ReturnDate FROM Loan
+WHERE ReturnDate IS NULL;
+
+-- Task 10.2
+SELECT MemberID, BookID, ReturnDate FROM Loan
+WHERE ReturnDate IS NOT NULL;
+
+-- Task 10.3
+SELECT MemberID, Comments FROM Review
+WHERE Comments IS NULL OR Comments= 'No Comments';
+
+-- Task 11.1
+SELECT * FROM Book
+WHERE Genre = 'Non-Fiction'AND IsAvailable = 1 AND Price < 25
+ORDER BY Price ASC;
+
+-- Task 11.2
+SELECT TOP 5 * FROM Loan
+WHERE Status = 'Overdue'
+ORDER BY DueDate DESC;
+
+-- Task 11.3
+SELECT * FROM Libarary
+WHERE (Location = 'Muscat'OR Location = 'Sur' )AND EstablishedYear > 2005
+ORDER BY Name ASC;
+
+-- Task 11.4
+SELECT * FROM Book 
+WHERE (Genre ='Non-Fiction' OR Genre = 'Children') AND 
+(Price BETWEEN 10 AND 30) AND
+IsAvailable = 1;
+
+-- Task 11.5
+SELECT * FROM Member
+WHERE (YEAR(MembershipStartDate)=2023 OR YEAR(MembershipStartDate)=2024)
+AND Email LIKE '%@gmail.com'
+ORDER BY MembershipStartDate ASC;
+
+-- Task 12.1
+SELECT TOP 10 * FROM Book
+WHERE (Genre = 'Non-Fiction' OR Genre = 'Fiction')
+AND IsAvailable = 1
+ORDER BY Price;
+
+-- Task 12.2
+SELECT * FROM Loan
+WHERE YEAR (DueDate)=2024 AND ReturnDate IS NULL
+ORDER BY LoanDate ASC;
+
+
