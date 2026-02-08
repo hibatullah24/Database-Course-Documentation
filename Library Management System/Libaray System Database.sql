@@ -125,18 +125,20 @@ VALUES
 ('Noor Hamad', 'noor@gmail.com', '98889900', '2023-10-10');
 
 
-INSERT INTO Book (ISBN, Title, Genre, Price, ShelfLocation, LibraryID)
+INSERT INTO Book (ISBN, Title, Genre, Price, ShelfLocation, LibraryId)
 VALUES
-('978-1111111111', 'Database Systems', 'Reference', 25.00, 'A1', 1),
-('978-2222222222', 'Python Basics', 'Non-fiction', 18.50, 'B2', 1),
-('978-3333333333', 'Children Stories', 'Children', 12.00, 'C3', 2),
-('978-4444444444', 'SQL Guide', 'Reference', 30.00, 'A2', 3),
-('978-5555555555', 'Web Development', 'Non-fiction', 22.00, 'B3', 4),
-('978-6666666666', 'Fairy Tales', 'Children', 10.00, 'C1', 5),
-('978-7777777777', 'Data Science', 'Non-fiction', 28.00, 'B1', 6),
-('978-8888888888', 'Algorithms', 'Reference', 35.00, 'A3', 7),
-('978-9999999999', 'Story Book', 'Children', 9.00, 'C2', 8),
-('978-1010101010', 'AI Basics', 'Non-fiction', 26.00, 'B4', 9);
+('978-1111111112', 'Database Systems Vol 2', 'Reference', 27.00, 'A1-2', 1),
+('978-2222222223', 'Advanced Python', 'Non-fiction', 21.00, 'B2-2', 1),
+('978-3333333334', 'More Children Stories', 'Children', 13.00, 'C3-2', 2),
+('978-4444444445', 'SQL Guide Advanced', 'Reference', 33.00, 'A2-2', 3),
+('978-5555555556', 'Web Development Pro', 'Non-fiction', 25.00, 'B3-2', 4),
+('978-6666666667', 'Fairy Tales 2', 'Children', 11.00, 'C1-2', 5),
+('978-7777777778', 'Data Science Advanced', 'Non-fiction', 30.00, 'B1-2', 6),
+('978-8888888889', 'Algorithms II', 'Reference', 38.00, 'A3-2', 7),
+('978-9999999998', 'Story Book 2', 'Children', 10.00, 'C2-2', 8),
+('978-1010101011', 'AI Basics Advanced', 'Non-fiction', 29.00, 'B4-2', 9),
+ SELECT * FROM Book;
+
 
 
 INSERT INTO Staff (FullName, Position, ContactNumber, LibararyID)
@@ -192,12 +194,106 @@ VALUES
 (5, '2024-05-18', 9, 9),
 (4, '2024-05-19', 10, 10);
 
---CHECK DATA 
-SELECT * FROM Libarary;
-SELECT * FROM Member;
-SELECT * FROM Book;
-SELECT * FROM Staff;
-SELECT * FROM Loan;
-SELECT * FROM Payment;
-SELECT * FROM Review;
 
+
+-- Task 1.1
+SELECT * FROM Libarary;
+
+--Task1.2
+SELECT * FROM Member;
+
+--Task 1.3
+SELECT * FROM Book;
+
+-- Task 2.1
+SELECT Name, Location FROM Libarary;
+
+-- Task 2.2
+SELECT Title, Genre, Price FROM Book;
+
+-- Task 2.3
+SELECT FullName, Email FROM Member;
+
+--Task 2.4
+SELECT StaffID, FullName, Position FROM Staff;
+
+-- Task 3.1
+SELECT * FROM Book
+WHERE Genre = 'Non-Fiction';
+
+--Task 3.2
+SELECT * FROM Libarary
+WHERE Location = 'Muscat';
+
+-- Task 3.3
+SELECT * FROM Book
+WHERE IsAvailable = 1;
+
+-- Task 3.4
+SELECT * FROM Staff
+WHERE Position = 'Librarian';
+
+-- Task 3.5
+SELECT * FROM Loan
+WHERE Status = 'Overdue';
+
+-- Task4.1
+SELECT * FROM Book
+WHERE Price>20;
+
+-- Task 4.2
+SELECT * FROM Libarary
+WHERE EstablishedYear <2010;
+
+-- Task 4.3
+SELECT * FROM Payment
+WHERE Amount >= 5;
+
+-- Task 4.4
+SELECT * FROM Book
+WHERE Price <= 15;
+
+-- Task 4.5
+SELECT * FROM Review
+WHERE Rating !=5;
+
+-- Task 5.1: 
+SELECT * FROM Book
+WHERE IsAvailable =1 AND Genre = 'Non-Fiction';
+
+-- Task 5.2
+SELECT * FROM Book
+WHERE Genre='Non-Fiction' OR Genre='Children';
+
+-- Task 5.3
+SELECT * FROM Libarary
+WHERE EstablishedYear > 2010 AND Location = 'Muscat';
+
+-- Task 5.4
+SELECT * FROM Book
+WHERE Price >= 10 AND Price <= 30;
+
+-- Task 5.5
+SELECT * FROM Loan
+WHERE Status NOT IN ( 'returned'); 
+
+
+-- Task 6.1
+SELECT * FROM Book
+ORDER BY Title ASC;
+
+-- Task 6.2
+SELECT * FROM Book
+ORDER BY Price DESC;
+
+-- Task 6.3
+SELECT * FROM Member
+ORDER BY MembershipStartDate DESC;
+
+-- Task 6.4 
+SELECT * FROM Libarary
+ORDER BY EstablishedYear ASC;
+
+-- Task 6.5
+SELECT * FROM Review
+ORDER BY Rating DESC , ReviewDate ASC;
